@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "author": "Aziz Arif Rizaldi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 169.8, "left": 358, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 173.4, "left": -29.4, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 105.9,
+      "left": 369,
+      "attrs": { "temperature": "67.2", "humidity": "0" }
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 6.4, "left": 476, "attrs": { "pins": "i2c" } }
+  ],
+  "connections": [
+    [ "uno:5V", "bb1:bn.1", "red", [ "v38.3", "h272.6" ] ],
+    [ "uno:GND.2", "bb1:bp.1", "black", [ "v28.7", "h243.9", "v-38.4" ] ],
+    [ "uno:8", "bb1:2t.b", "green", [ "v-19.2", "h182.8", "v76.8" ] ],
+    [ "bb1:bp.2", "dht1:GND", "black", [ "h30.4", "v-116.1", "h-19.2" ] ],
+    [ "bb1:bn.3", "dht1:VCC", "red", [ "v-68.5", "h-27.2" ] ],
+    [ "dht1:VCC", "bb1:1t.a", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:2t.a", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:3t.a", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:4t.a", "", [ "$bb" ] ],
+    [ "uno:A4.2", "lcd1:SDA", "green", [ "v0" ] ],
+    [ "uno:A5.2", "lcd1:SCL", "blue", [ "v0" ] ],
+    [ "uno:GND.1", "lcd1:GND", "black", [ "v-144", "h393.9" ] ],
+    [ "bb1:bn.6", "lcd1:VCC", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

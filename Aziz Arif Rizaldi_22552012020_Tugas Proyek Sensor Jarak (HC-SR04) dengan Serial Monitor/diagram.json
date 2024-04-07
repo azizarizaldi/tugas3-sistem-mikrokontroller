@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Aziz Arif Rizaldi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -118.2, "left": 194.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -105, "left": -96.6, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -75.3,
+      "left": 216.7,
+      "attrs": { "distance": "400" }
+    }
+  ],
+  "connections": [
+    [ "bb1:bn.6", "bb1:8b.i", "green", [ "v0" ] ],
+    [ "bb1:bp.9", "bb1:11b.i", "green", [ "v0" ] ],
+    [ "uno:10", "bb1:10b.i", "green", [ "v-28.8", "h106.3" ] ],
+    [ "uno:11", "bb1:9b.i", "green", [ "v-38.4", "h106.2" ] ],
+    [ "ultrasonic1:VCC", "bb1:8b.h", "", [ "$bb" ] ],
+    [ "ultrasonic1:TRIG", "bb1:9b.h", "", [ "$bb" ] ],
+    [ "ultrasonic1:ECHO", "bb1:10b.h", "", [ "$bb" ] ],
+    [ "ultrasonic1:GND", "bb1:11b.h", "", [ "$bb" ] ],
+    [ "uno:5V", "bb1:bn.1", "red", [ "v19.1", "h167" ] ],
+    [ "uno:GND.2", "bb1:bp.2", "black", [ "v28.7", "h167.1", "v-9.6" ] ]
+  ],
+  "dependencies": {}
+}
